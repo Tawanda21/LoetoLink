@@ -71,8 +71,7 @@ const AuthStack = () => {
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       <Stack.Screen name="Splash" component={SplashScreen} />
       <Stack.Screen name="Login" component={LoginScreen} />
-      <Stack.Screen name="Home" component={HomeScreen} />
-      <Stack.Screen name="Map" component={MapViewScreen} />
+      <Stack.Screen name="MainTabNavigator" component={MainTabNavigator} />
     </Stack.Navigator>
   );
 };
@@ -87,7 +86,7 @@ const RootNavigator = () => {
     setTimeout(() => {
       setIsLoading(false);
       // For development, you can set this to true to skip login
-      setIsAuthenticated(true);
+      setIsAuthenticated(false);
     }, 1000);
   }, []);
 
@@ -98,9 +97,12 @@ const RootNavigator = () => {
   return (
     <Stack.Navigator screenOptions={{ headerShown: false }}>
       {isAuthenticated ? (
-        <Stack.Screen name="Main" component={MainTabNavigator} />
+        <Stack.Screen name="MainTabNavigator" component={MainTabNavigator} />
       ) : (
-        <Stack.Screen name="Login" component={LoginScreen} />
+        <>
+          <Stack.Screen name="Login" component={LoginScreen} />
+          <Stack.Screen name="MainTabNavigator" component={MainTabNavigator} />
+        </>
       )}
     </Stack.Navigator>
   );

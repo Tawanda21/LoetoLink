@@ -51,7 +51,7 @@ const LoginScreen = () => {
         <Text style={styles.buttonText}>I already have an account</Text>
       </TouchableOpacity>
       <View style={{ height: 25 }} />
-      <TouchableOpacity style={styles.guestButton} onPress={() => navigation.navigate('Map')}>
+      <TouchableOpacity style={styles.guestButton} onPress={() => navigation.navigate('MainTabNavigator', { screen: 'Map' })}>
         <Text style={styles.guestButtonText}>Continue as Guest</Text>
         <Animated.Image
           source={require('../assets/arrow-right.png')}
