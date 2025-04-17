@@ -1,17 +1,23 @@
 import React, { useEffect } from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, Image } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
-const SplashScreen = ({ navigation }) => {
+const SplashScreen = () => {
+  const navigation = useNavigation();
+
   useEffect(() => {
-    // Delay navigation to the WelcomeScreen by 3 seconds
+    // Delay navigation to the LoginScreen by 3 seconds
     setTimeout(() => {
-      navigation.replace('Welcome');
+      navigation.navigate('Login');
     }, 3000); // 3000 milliseconds = 3 seconds
   }, [navigation]);
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Splash Screen</Text>
+      <Image
+        source={require('../assets/Bus.gif')} // Ensure you have a splash.png image in your assets folder
+        style={styles.splashImage}
+      />
     </View>
   );
 };
@@ -23,9 +29,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
   },
-  text: {
-    fontSize: 24,
-    fontWeight: 'bold',
+  splashImage: {
+    width: 100, // Adjust the width as needed
+    height: 100, // Adjust the height as needed
   },
 });
 
