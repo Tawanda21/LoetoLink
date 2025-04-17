@@ -1,31 +1,32 @@
 import React from 'react';
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity, Image } from 'react-native';
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
+  const Profile = []
   return (
     <View style={styles.container}>
       <Text style={styles.text}>Profile Screen</Text>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
-        <Text style={styles.touchableText}>Logout</Text>
+      
+      <TouchableOpacity style={[styles.button, { backgroundColor: '#001F3F'}]} onPress={() => {}}>
+        <Text style={styles.buttonText}>Edit Information</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
-        <Text style={styles.touchableText}>Edit Information</Text>
+      
+      <TouchableOpacity style={[styles.button, { backgroundColor: '#364c84' }]} onPress={() => {}}>
+        <Text style={styles.buttonText}>Change Theme</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
-        <Text style={styles.touchableText}>Change Theme</Text>
+      
+      <TouchableOpacity style={[styles.button, { backgroundColor: '#95b1ee' }]} onPress={() => {}}>
+        <Text style={styles.buttonText}>Change Language</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
-        <Text style={styles.touchableText}>Change Language</Text>
+      
+      <TouchableOpacity style={[styles.button, { backgroundColor: '#dce2ef' }]} onPress={() => {}}>
+        <Text style={[styles.buttonText, { color: 'gray' }]}>Logout</Text>
       </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
-        <Text style={styles.touchableText}>Change Profile Picture</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.touchable} onPress={() => {}}>
-        <Text style={styles.touchableText}>Change Password</Text>
-      </TouchableOpacity>
+      
     </View>
   );
-};
+}
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
@@ -37,17 +38,29 @@ const styles = StyleSheet.create({
   text: {
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    marginBottom: 30,
   },
-  touchable: {
-    padding: 10,
-    marginVertical: 5,
-    borderBottomWidth: 1,
-    borderBottomColor: '#ccc',
+  button: {
+    padding: 15,
+    borderRadius: 25,
+    width: '100%',
+    alignItems: 'center',
+    justifyContent: 'center',
+    marginVertical: 10,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
-  touchableText: {
+  buttonText: {
+    color: '#fff',
+    textAlign: 'center',
     fontSize: 16,
-    color: 'blue',
+    fontWeight: '500',
   },
 });
 

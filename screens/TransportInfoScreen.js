@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 import Button from '../components/Button';
 
-const TransportInfoScreen = () => {
+const TransportInfoScreen = ({navigation}) => {
   const transports = [
     { id: '1', name: 'Combi 1', status: 'On time' },
     { id: '2', name: 'Combi 2', status: 'Delayed' },
@@ -12,11 +12,11 @@ const TransportInfoScreen = () => {
   const getStatusColor = (status) => {
     switch (status) {
       case 'On time':
-        return 'green';
+        return '#abfa54';
       case 'Delayed':
-        return 'orange';
+        return '#ffd628';
       case 'Very late':
-        return 'red';
+        return '#ff3900';
       default:
         return 'gray';
     }
@@ -34,8 +34,9 @@ const TransportInfoScreen = () => {
             <Text style={styles.transportText}>{item.status}</Text>
           </View>
         )}
+        style={styles.flatList}
       />
-      <Button title="View in real time" onPress={() => {}} color="blue" />
+      <Button title="View in real time" onPress={() => navigation.navigate('Map')} color="#364fa1" borderRadius={20} />
     </View>
   );
 };
@@ -47,21 +48,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: '#fff',
     padding: 20,
+    borderRadius: 25,
+    width: '95%',
+    alignSelf: 'center',
+    marginTop: 'auto',
+    marginBottom: 'auto',
   },
   text: {
     fontSize: 24,
     fontWeight: 'bold',
   },
+  flatList: {
+    width: '100%',
+  },
   transportItem: {
     padding: 10,
     marginVertical: 5,
-    borderRadius: 5,
+    borderRadius: 15,
     width: '100%',
     flexDirection: 'row',
     justifyContent: 'space-between',
   },
   transportText: {
-    color: 'white',
+    color: '#0d142b',
     fontSize: 16,
   },
 });

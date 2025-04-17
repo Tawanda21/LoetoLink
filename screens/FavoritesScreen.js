@@ -1,7 +1,7 @@
 import React from 'react';
 import { View, Text, StyleSheet, FlatList } from 'react-native';
 
-const FavoritesScreen = () => {
+const FavoritesScreen = ({ navigation }) => {
   const favorites = [
     { id: '1', name: 'Route 1' },
     { id: '2', name: 'Route 2' },
@@ -43,8 +43,8 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   card: {
-    width: '48%', // Adjust width to fit two cards per row with some margin
-    aspectRatio: 1, // Ensures the card is square
+    width: '48%',
+    aspectRatio: 1,
     margin: 5,
     padding: 10,
     borderWidth: 1,
@@ -59,7 +59,7 @@ const styles = StyleSheet.create({
   listContent: {
     justifyContent: 'center',
     alignItems: 'center',
-    padding: 10, // Add padding to the FlatList content container
+    padding: 10,
   },
 });
 
